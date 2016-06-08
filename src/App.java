@@ -9,9 +9,10 @@ public class App
     	String result = "";
     	try
     	{
+    		long startTime = System.nanoTime();
     		// REDUCE //
-    		int n = 22;
-    		double it = Math.pow(2, n);
+    		int n = 20;
+    		int it = (int) Math.pow(2, n);
     		String file_reduce = "REDUCE_" + it;
     		
     		File file = new File(file_reduce);
@@ -55,7 +56,7 @@ public class App
     		// MAP //
 //    		int n = 5;
 //    		double it = Math.pow(2, n);
-            String result2 = "";
+//            String result2 = "";
     		String file_map = "MAP_" + it;
             File file2 = new File(file_map);
             FileWriter writer2 = new FileWriter(file2, true);
@@ -90,6 +91,10 @@ public class App
     		
     		writer2.write(result);
             writer2.close();
+            
+            long stopTime = System.nanoTime();
+			long elapsedTime = stopTime - startTime;
+			System.out.println("EL tiempo total fue: " + elapsedTime);
 
     		System.out.println("Archivos generados correctamente =)");
     	}
